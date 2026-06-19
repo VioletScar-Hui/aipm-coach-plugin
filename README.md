@@ -13,10 +13,9 @@ claude --plugin-dir ./plugins/aipm-coach
 **方式二·从 marketplace 安装（推荐分享）**
 先把本仓库推到 GitHub，然后：
 ```
-/plugin marketplace add binhuili/aipm-coach-plugin
+/plugin marketplace add VioletScar-Hui/aipm-coach-plugin
 /plugin install aipm-coach@aipm-coach-marketplace
 ```
-（`binhuili` 是按你的 git 身份填的；若 GitHub 用户名不同，改成你的实际用户名。）
 本地路径也行：`/plugin marketplace add /d/CC_project/aipm-coach-plugin`
 
 装好后说"初始化 aipm 知识库"触发 `/aipm-coach:aipm-setup`，再填 `aipm-coach/profile.md` 和 `resume-current.md`，即可开始。详见 [`plugins/aipm-coach/README.md`](plugins/aipm-coach/README.md)。
@@ -27,5 +26,5 @@ claude --plugin-dir ./plugins/aipm-coach
 
 ## 自定义
 
-- 作者字段已按你的 git 身份填为 `binhuili`；要换显示名 / handle 就改 `plugin.json` 的 `author` 与本目录 `marketplace.json` 的 `owner`。
+- 作者字段为 `VioletScar-Hui`；要换显示名就改 `plugin.json` 的 `author` 与本目录 `marketplace.json` 的 `owner`。
 - 改版本就 bump `plugin.json` 的 `version`（用户据此收到更新）。
