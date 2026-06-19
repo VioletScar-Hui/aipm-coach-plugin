@@ -1,0 +1,11 @@
+{
+  "name": "aipm-coach-marketplace",
+  "owner": { "name": "binhuili" },
+  "plugins": [
+    {
+      "name": "aipm-coach",
+      "source": "./plugins/aipm-coach",
+      "description": "AIPM 面试复盘 loop 系统（复盘 / 简历 / 冲刺 / 质检 + 累积知识库 + 护栏）"
+    }
+  ]
+}
