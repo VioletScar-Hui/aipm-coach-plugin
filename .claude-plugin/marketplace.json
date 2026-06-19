@@ -1,5 +1,6 @@
 {
   "name": "aipm-coach-marketplace",
+  "description": "AIPM 面试复盘 loop 插件市场 / Marketplace for the aipm-coach AIPM interview-prep plugin.",
   "owner": { "name": "VioletScar-Hui" },
   "plugins": [
     {
