@@ -1,7 +1,7 @@
 {
   "name": "aipm-coach",
   "description": "AIPM（AI 产品经理）面试复盘 loop 系统：逐题复盘诊断 / 简历话术提炼 / 面前冲刺简报 / 复盘质检（writer-vs-checker）。配跨面试累积的知识库 + 防越权护栏 hook。",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": { "name": "VioletScar-Hui" },
   "license": "MIT",
   "keywords": ["aipm", "interview", "product-manager", "loop", "retro", "evals"]

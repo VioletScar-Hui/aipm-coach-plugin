@@ -50,7 +50,9 @@
 
 ## 前置条件
 
-只需要 **Claude Code**（桌面端 / CLI / IDE 插件均可）。**无任何外部依赖**——不需要 API key、数据库或第三方 CLI，所有状态都是本地 markdown 文件。
+核心功能只需要 **Claude Code**（桌面端 / CLI / IDE 插件均可）——状态都是本地 markdown，无需 API key 或数据库。
+
+**可选**：装并登录 npm 版 `lark-cli` 可解锁两项增强——复盘后**自动生成飞书 docx 复盘文档**并回链接、把**面试录音 / 录像自动转成逐字稿**喂给复盘。没有它也能跑，会自动降级（复盘文档存本地、逐字稿改为手动粘贴），**绝不因此判复盘失败**。
 
 ---
 
@@ -114,6 +116,15 @@ claude --plugin-dir ./plugins/aipm-coach
 
 ---
 
+## 进阶能力
+
+随复盘深入，`aipm-retro` / `aipm-prep` 会按需调用更深的工具（只想要基础复盘就跳过，不强塞）：
+
+- **进阶诊断**（`_diagnosis-plus.md`）：四层归因（表达 / 思维 / 知识 / 心态——决定怎么治）、追问树 + 击穿点预测、距满分差距清单、面试官意图解码、可信度审计。
+- **主动训练**（`drills.md`）：即时重答 + delta 记录、口述体检、间隔重练队列（spaced repetition，prep 面前捞"今日到期"的先练）。
+- **进步可见**（`progress.md`）：弱点状态时间线、**跨场元模式**（攒几场才浮现的稳定失败模式）、里程碑。
+- **飞书出片**（可选 `lark-cli`）：复盘后自动生成飞书 docx 复盘文档并回链接；还能把面试录音 / 录像自动转逐字稿喂给复盘。
+
 ## 核心设计（为什么可靠）
 
 - **为失忆者设计**：所有经验沉淀进 `aipm-coach/` 文件，新会话先读状态再动手，跨会话 / 上下文重置不丢。
@@ -134,6 +145,9 @@ claude --plugin-dir ./plugins/aipm-coach
 | `weak-spots.md` | 薄弱点台账（系统进步的核心累积状态） |
 | `question-bank.md` | 题库 + 优质答案（跨面试累积，幂等去重） |
 | `star-stories.md` | 可复用 STAR 真实素材 |
+| `_diagnosis-plus.md` | 进阶诊断工具箱（四层归因 / 追问树 / 距优差距 / 意图解码 / 可信度审计） |
+| `drills.md` | 主动训练台（重答 delta + 间隔重练 + 口述体检） |
+| `progress.md` | 进步仪表盘（状态时间线 + 跨场元模式 + 里程碑） |
 | `profile.md` / `resume-current.md` | 求职画像 / 简历原文（你的源文件，受护栏保护） |
 | `evals/` + `eval-log.md` | 评测样本 + 质检流水账 |
 | `sessions/` | 每场复盘 / 冲刺存档 |
@@ -153,7 +167,7 @@ aipm-coach-plugin/
     skills/   aipm-retro | resume | prep | eval | setup
     agents/   aipm-reviewer.md      # 全新上下文检查者
     hooks/    hooks.json + guard-source-files.sh
-    templates/aipm-coach/           # 空知识库模板 + 通用 _rubric + 评测样本
+    templates/aipm-coach/           # 空知识库模板 + 通用 _rubric/_diagnosis-plus + drills/progress + 评测样本
 ```
 
 ---

@@ -51,7 +51,9 @@ Not for: a generic question list, or one-line surface advice. The value compound
 
 ## Prerequisite
 
-Only **Claude Code** (desktop / CLI / IDE extension). **No external dependencies** — no API keys, databases, or third-party CLIs. All state is local markdown files.
+Core features need only **Claude Code** (desktop / CLI / IDE extension) — all state is local markdown, no API keys or databases.
+
+**Optional**: install and log in to the npm `lark-cli` to unlock two enhancements — auto-generate a Feishu/Lark docx debrief after each retro (with a link back), and auto-transcribe interview audio/video into a transcript for the debrief. It still runs without it, degrading gracefully (the debrief doc is saved locally, transcripts pasted manually) and **never fails the debrief over this**.
 
 ---
 
@@ -115,6 +117,15 @@ claude --plugin-dir ./plugins/aipm-coach
 
 ---
 
+## Advanced Capabilities
+
+As debriefs deepen, `aipm-retro` / `aipm-prep` pull in deeper tools on demand (skip them if you just want a basic debrief — nothing is forced):
+
+- **Advanced diagnosis** (`_diagnosis-plus.md`): four-layer attribution (delivery / thinking / knowledge / mindset — which decides the fix), follow-up tree + break-point prediction, gap-to-perfect checklist, interviewer-intent decoding, credibility audit.
+- **Active training** (`drills.md`): instant re-answer + delta log, spoken-delivery check, spaced-repetition queue (prep pulls "due today" items first).
+- **Visible progress** (`progress.md`): weak-spot status timeline, **cross-interview meta-patterns** (stable failure modes that surface only after several rounds), milestones.
+- **Feishu output** (optional `lark-cli`): auto-generates a Feishu docx debrief with a link after each retro, and can auto-transcribe interview audio/video for the debrief.
+
 ## Core Design (Why It's Reliable)
 
 - **Built for the amnesiac.** All experience is persisted into `aipm-coach/` files; a new session reads state before acting, surviving any session or context reset.
@@ -135,6 +146,9 @@ claude --plugin-dir ./plugins/aipm-coach
 | `weak-spots.md` | Weak-spot ledger (the core accumulating state) |
 | `question-bank.md` | Question bank + model answers (cross-interview, deduped) |
 | `star-stories.md` | Reusable real STAR material |
+| `_diagnosis-plus.md` | Advanced diagnosis toolbox (four-layer attribution / follow-up tree / gap-to-perfect / intent decoding / credibility audit) |
+| `drills.md` | Active-training board (re-answer delta + spaced repetition + spoken check) |
+| `progress.md` | Progress dashboard (status timeline / cross-interview meta-patterns / milestones) |
 | `profile.md` / `resume-current.md` | Job profile / resume source (your files, guardrail-protected) |
 | `evals/` + `eval-log.md` | Eval fixtures + review audit log |
 | `sessions/` | Per-interview debrief / sprint archives |
@@ -154,7 +168,7 @@ aipm-coach-plugin/
     skills/   aipm-retro | resume | prep | eval | setup
     agents/   aipm-reviewer.md       # fresh-context reviewer
     hooks/    hooks.json + guard-source-files.sh
-    templates/aipm-coach/            # empty KB templates + generic _rubric + eval fixtures
+    templates/aipm-coach/            # empty KB templates + generic _rubric/_diagnosis-plus + drills/progress + eval fixtures
 ```
 
 ---
