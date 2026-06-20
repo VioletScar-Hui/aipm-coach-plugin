@@ -156,8 +156,23 @@ claude --plugin-dir ./plugins/aipm-coach
 
 ## 在 Obsidian 里用（可选）
 
-想要图谱 / Dataview 查询 / 间隔复习的 Obsidian 体验？用 `plugins/aipm-coach/templates-obsidian/` 这套**一条目 = 一笔记 + frontmatter + wikilinks + Dataview 仪表盘**的变体（需装 Dataview 插件）。把它的 `aipm-coach/` 复制进你的 vault，打开 `_dashboard.md` 就是复习主页（今日到期重练 / 未克服薄弱点 / 待练题 / 最近复盘）。详见该目录 README。
-> 它是"Obsidian 优先"模式，和默认全自动 flat 模板**二选一**——别在同一份 `aipm-coach/` 里混用。
+想要图谱 / Dataview 查询 / 间隔复习的 Obsidian 体验，用 `plugins/aipm-coach/templates-obsidian/` 变体（一条目 = 一笔记 + frontmatter + wikilinks + Dataview 仪表盘）。四步：
+
+**1｜装 Dataview 插件**　Obsidian → 设置 → 第三方插件 → 关闭"安全模式" → 浏览 → 搜 `Dataview` → 安装并启用（仪表盘只用 DQL，无需开 JS 查询）。
+
+**2｜把变体放进 vault**　把 `templates-obsidian/aipm-coach/` 整个文件夹复制进你的 vault（根目录或任意子目录都行，`tags` 聚合不依赖路径）；再从默认模板拷 4 个参考文件。在仓库根目录跑（`<VAULT>` 换成你的 vault 路径）：
+```bash
+cp -r plugins/aipm-coach/templates-obsidian/aipm-coach "<VAULT>/aipm-coach"
+cp plugins/aipm-coach/templates/aipm-coach/{_rubric,_diagnosis-plus,profile,resume-current}.md "<VAULT>/aipm-coach/"
+```
+
+**3｜打开仪表盘 + 图谱**　Obsidian 打开 `aipm-coach/_dashboard.md` = 复习主页（今日/逾期到期重练 · 未克服薄弱点按复发排 · 待练题 ❌🔄 · 最近复盘 · 已克服里程碑）；再开**图谱视图**看 薄弱点 ↔ 题 ↔ 故事 ↔ 复盘 的连线。
+
+**4｜日常怎么转**
+- 复盘时让 Claude 按约定把条目写成笔记：「把这条薄弱点记成 `aipm-coach/weak-spots/W3 xxx.md`，带 `tags: [aipm/weak-spot]` 和到 `[[相关题]]` 的链接」。
+- 训练项笔记的 `due` 到期当天自动进仪表盘"到期重练"；练完把 `due` 往后推（1d→3d→7d），连过 3 次把 `mastery` 标 ✅。
+
+> "Obsidian 优先"模式，和默认全自动 flat 模板**二选一**——别在同一份 `aipm-coach/` 混用。frontmatter 字段约定见 `templates-obsidian/README.md`。
 
 ## 仓库结构
 

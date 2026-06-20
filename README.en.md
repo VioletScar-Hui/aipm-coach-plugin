@@ -157,8 +157,23 @@ As debriefs deepen, `aipm-retro` / `aipm-prep` pull in deeper tools on demand (s
 
 ## Using It In Obsidian (optional)
 
-Want the Obsidian experience — graph view, Dataview queries, spaced-repetition review? Use the `plugins/aipm-coach/templates-obsidian/` variant: **one-note-per-entry + frontmatter + wikilinks + a Dataview dashboard** (needs the Dataview plugin). Copy its `aipm-coach/` into your vault and open `_dashboard.md` as your review home (drills due today / unbeaten weak spots / questions to practice / recent debriefs). See that folder's README.
-> It's an "Obsidian-first" mode — pick it **or** the default fully-automated flat templates; don't mix both in the same `aipm-coach/`.
+For the Obsidian experience — graph view, Dataview queries, spaced-repetition review — use the `plugins/aipm-coach/templates-obsidian/` variant (one-note-per-entry + frontmatter + wikilinks + a Dataview dashboard). Four steps:
+
+**1 — Install Dataview.** Obsidian → Settings → Community plugins → turn off Restricted mode → Browse → search `Dataview` → Install and Enable (the dashboard uses DQL only; no JS queries needed).
+
+**2 — Put the variant in your vault.** Copy the whole `templates-obsidian/aipm-coach/` folder into your vault (root or any subfolder — `tags` aggregation is path-independent); then copy 4 reference files from the default templates. Run from the repo root (replace `<VAULT>`):
+```bash
+cp -r plugins/aipm-coach/templates-obsidian/aipm-coach "<VAULT>/aipm-coach"
+cp plugins/aipm-coach/templates/aipm-coach/{_rubric,_diagnosis-plus,profile,resume-current}.md "<VAULT>/aipm-coach/"
+```
+
+**3 — Open the dashboard + graph.** Open `aipm-coach/_dashboard.md` as your review home (drills due today/overdue · unbeaten weak spots by recurrence · questions to practice ❌🔄 · recent debriefs · milestones); open Graph view to see weak-spot ↔ question ↔ story ↔ session links.
+
+**4 — Daily flow.**
+- When debriefing, have Claude file entries per the convention: "save this weak spot as `aipm-coach/weak-spots/W3 xxx.md` with `tags: [aipm/weak-spot]` and a `[[related question]]` link."
+- A drill's `due` date surfaces it in the dashboard's "due" view that day; after practicing, push `due` out (1d→3d→7d), and after 3 clean passes set `mastery: ✅`.
+
+> "Obsidian-first" mode — pick it **or** the default fully-automated flat templates; don't mix both in one `aipm-coach/`. Frontmatter field conventions: see `templates-obsidian/README.md`.
 
 ## Repository Structure
 
