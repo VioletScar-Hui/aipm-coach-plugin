@@ -20,6 +20,28 @@
 
 ---
 
+## 图文介绍
+
+### 1. 面试复盘，越用越准
+
+![AIPM Coach 面试复盘闭环总览](assets/intro-01-loop.png)
+
+把面试逐字稿、录音转写或回忆交给 `/aipm-retro`，系统会逐题诊断、给出基于真实经历的优质答案，并把题目、薄弱点和 STAR 素材沉淀回 `aipm-coach/`。下一次 `/aipm-prep` 会优先攻你复发最多的点，让每场面试都成为下一场的燃料。
+
+### 2. 独立质检，复盘不自嗨
+
+![AIPM Coach writer-vs-checker 独立质检](assets/intro-02-quality-review.png)
+
+复盘不是写完就算。`/aipm-eval` 会派一个全新上下文的检查者按 `_rubric.md` 做十维评分，专门抓诊断漏判、答案编造、AI 产品维度不足和话术空泛等问题，再把漏判回流到 `eval-log.md` 与薄弱点台账。
+
+### 3. 本地知识库，真实经历不编造
+
+![AIPM Coach 本地知识库与防编造护栏](assets/intro-03-local-knowledge.png)
+
+所有状态都保存在本地 `aipm-coach/`：源文件 `profile.md`、`resume-current.md`、`_rubric.md` 只读受保护；可增长的是 `weak-spots.md`、`question-bank.md`、`star-stories.md` 和 `sessions/`。缺事实就标 `[需你补充]`，不虚构数字、不冒充工程师。
+
+---
+
 ## 它怎么工作（闭环）
 
 ```text
@@ -180,6 +202,7 @@ cp plugins/aipm-coach/templates/aipm-coach/{_rubric,_diagnosis-plus,profile,resu
 aipm-coach-plugin/
   README.md / README.en.md         # 中 / 英首页
   LICENSE
+  assets/                          # README 图文介绍配图
   .claude-plugin/marketplace.json  # marketplace 清单
   plugins/aipm-coach/
     .claude-plugin/plugin.json
