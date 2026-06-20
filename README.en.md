@@ -57,20 +57,41 @@ Only **Claude Code** (desktop / CLI / IDE extension). **No external dependencies
 
 ## Installation
 
-**Option 1 — from the marketplace (recommended)**
+`aipm-coach` installs from a marketplace. The three methods below are equivalent — they differ only in **where you type the command**.
+
+### Option 1 — inside a Claude Code session (recommended)
+
+First launch Claude Code from your system terminal (PowerShell / Terminal / bash):
+
+```bash
+claude
+```
+
+Once the interactive prompt `>` appears, type the slash commands **at that `>` prompt** (not in the system terminal):
 
 ```text
 /plugin marketplace add VioletScar-Hui/aipm-coach-plugin
 /plugin install aipm-coach@aipm-coach-marketplace
 ```
 
-**Option 2 — local trial (no install)**
+> `/plugin` is a **built-in Claude Code slash command** — it only works inside a Claude Code session. Pasting it into PowerShell / bash fails with `command not found`.
+
+### Option 2 — from the system terminal (no session)
+
+Use the `claude` subcommands directly, suitable for scripts:
+
+```bash
+claude plugin marketplace add VioletScar-Hui/aipm-coach-plugin
+claude plugin install aipm-coach@aipm-coach-marketplace
+```
+
+### Option 3 — local trial (no install, for development)
 
 ```bash
 claude --plugin-dir ./plugins/aipm-coach
 ```
 
-Plugin skills appear namespaced: `/aipm-coach:aipm-retro`, `/aipm-coach:aipm-eval`, etc. (see `/help`). Restart Claude Code after installation so the index reloads.
+**Restart Claude Code after installing** so the skills load. They appear namespaced: `/aipm-coach:aipm-retro`, `/aipm-coach:aipm-eval`, etc. (see `/help`).
 
 ---
 

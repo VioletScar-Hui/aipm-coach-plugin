@@ -56,20 +56,41 @@
 
 ## 安装
 
-**方式一·从 marketplace 安装（推荐）**
+`aipm-coach` 通过 marketplace 安装。下面三种方式等价，区别只在**命令敲在哪里**。
+
+### 方式一：在 Claude Code 会话里（推荐）
+
+先在系统终端（PowerShell / Terminal / bash）启动 Claude Code：
+
+```bash
+claude
+```
+
+进入交互界面后会看到输入提示符 `>`。**在这个 `>` 提示符后**逐条输入下面的斜杠命令（不是在系统终端里）：
 
 ```text
 /plugin marketplace add VioletScar-Hui/aipm-coach-plugin
 /plugin install aipm-coach@aipm-coach-marketplace
 ```
 
-**方式二·本地试用（不装）**
+> `/plugin` 是 Claude Code 的**内置斜杠命令**，只能在 Claude Code 会话内输入；直接粘到 PowerShell / bash 里会报 `command not found`。
+
+### 方式二：在系统终端里（不进会话）
+
+直接用 `claude` 的子命令安装，适合写进脚本：
+
+```bash
+claude plugin marketplace add VioletScar-Hui/aipm-coach-plugin
+claude plugin install aipm-coach@aipm-coach-marketplace
+```
+
+### 方式三：本地试用（不安装，开发用）
 
 ```bash
 claude --plugin-dir ./plugins/aipm-coach
 ```
 
-插件技能以命名空间形式出现：`/aipm-coach:aipm-retro`、`/aipm-coach:aipm-eval` 等（`/help` 可见）。安装后重启 Claude Code 让索引重载。
+**安装后重启 Claude Code**，技能才会加载，并以命名空间形式出现：`/aipm-coach:aipm-retro`、`/aipm-coach:aipm-eval` 等（`/help` 可见）。
 
 ---
 
