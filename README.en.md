@@ -121,7 +121,7 @@ claude --plugin-dir ./plugins/aipm-coach
 
 As debriefs deepen, `aipm-retro` / `aipm-prep` pull in deeper tools on demand (skip them if you just want a basic debrief — nothing is forced):
 
-- **Advanced diagnosis** (`_diagnosis-plus.md`): four-layer attribution (delivery / thinking / knowledge / mindset — which decides the fix), follow-up tree + break-point prediction, gap-to-perfect checklist, interviewer-intent decoding, credibility audit.
+- **Advanced diagnosis** (`_diagnosis-plus.md`): four-layer attribution (delivery / thinking / knowledge / mindset — which decides the fix), follow-up tree + break-point prediction, gap-to-perfect checklist, interviewer-intent decoding, credibility audit, the **interviewer-reaction signal** (probe / nod / instant skip — more reliable than self-assessment), and a knowledge-gap split into "don't know" vs "never done" (never-done → repackage past experience via aipm-resume).
 - **Active training** (`drills.md`): instant re-answer + delta log, spoken-delivery check, spaced-repetition queue (prep pulls "due today" items first).
 - **Visible progress** (`progress.md`): weak-spot status timeline, **cross-interview meta-patterns** (stable failure modes that surface only after several rounds), milestones.
 - **Feishu output** (optional `lark-cli`): auto-generates a Feishu docx debrief with a link after each retro, and can auto-transcribe interview audio/video for the debrief.
