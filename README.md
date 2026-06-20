@@ -154,6 +154,11 @@ claude --plugin-dir ./plugins/aipm-coach
 
 ---
 
+## 在 Obsidian 里用（可选）
+
+想要图谱 / Dataview 查询 / 间隔复习的 Obsidian 体验？用 `plugins/aipm-coach/templates-obsidian/` 这套**一条目 = 一笔记 + frontmatter + wikilinks + Dataview 仪表盘**的变体（需装 Dataview 插件）。把它的 `aipm-coach/` 复制进你的 vault，打开 `_dashboard.md` 就是复习主页（今日到期重练 / 未克服薄弱点 / 待练题 / 最近复盘）。详见该目录 README。
+> 它是"Obsidian 优先"模式，和默认全自动 flat 模板**二选一**——别在同一份 `aipm-coach/` 里混用。
+
 ## 仓库结构
 
 ```text
@@ -168,6 +173,7 @@ aipm-coach-plugin/
     agents/   aipm-reviewer.md      # 全新上下文检查者
     hooks/    hooks.json + guard-source-files.sh
     templates/aipm-coach/           # 空知识库模板 + 通用 _rubric/_diagnosis-plus + drills/progress + 评测样本
+    templates-obsidian/             # Obsidian 风味变体（per-note + frontmatter + Dataview 仪表盘）
 ```
 
 ---

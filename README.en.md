@@ -155,6 +155,11 @@ As debriefs deepen, `aipm-retro` / `aipm-prep` pull in deeper tools on demand (s
 
 ---
 
+## Using It In Obsidian (optional)
+
+Want the Obsidian experience — graph view, Dataview queries, spaced-repetition review? Use the `plugins/aipm-coach/templates-obsidian/` variant: **one-note-per-entry + frontmatter + wikilinks + a Dataview dashboard** (needs the Dataview plugin). Copy its `aipm-coach/` into your vault and open `_dashboard.md` as your review home (drills due today / unbeaten weak spots / questions to practice / recent debriefs). See that folder's README.
+> It's an "Obsidian-first" mode — pick it **or** the default fully-automated flat templates; don't mix both in the same `aipm-coach/`.
+
 ## Repository Structure
 
 ```text
@@ -169,6 +174,7 @@ aipm-coach-plugin/
     agents/   aipm-reviewer.md       # fresh-context reviewer
     hooks/    hooks.json + guard-source-files.sh
     templates/aipm-coach/            # empty KB templates + generic _rubric/_diagnosis-plus + drills/progress + eval fixtures
+    templates-obsidian/              # Obsidian-flavored variant (per-note + frontmatter + Dataview dashboard)
 ```
 
 ---
